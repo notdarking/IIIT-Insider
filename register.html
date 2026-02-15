@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="register_style.css">
+</head>
+<body>
+
+    <div class="registration-container">
+        <h2>User Registration</h2>
+        
+        <form class="registration-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Confirm Password" required>
+
+            <button type="submit" class="register-btn">Register</button>
+            
+            <p class="login-prompt">
+                Already have an account? <a href="#" id="login-link">Login</a>
+            </p>
+        </form>
+    </div>
+
+    <div id="modal-popup" class="modal">
+        <div class="modal-content">
+            <h3>Terms & Conditions</h3>
+            <p>Do you accept our terms and conditions</p>
+            
+            <div class="modal-actions">
+                <button id="cancel-btn" class="modal-btn cancel-btn">Cancel</button>
+                <button id="ok-btn" class="modal-btn ok-btn"> <a href="IIIT Insider.html">Accept</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="register_script.js"></script>
+</body>
+</html> 

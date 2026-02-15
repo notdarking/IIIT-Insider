@@ -1,0 +1,148 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
+.registration-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+}
+
+
+.registration-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+    font-size: 16px;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+}
+
+
+.login-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+#login-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#login-link:hover {
+    text-decoration: underline;
+}
+
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 25px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 350px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.cancel-btn {
+    background-color: #6c757d; 
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+.ok-btn {
+    background-color: #28a745; 
+    color: white;
+    text-decoration: none;
+    
+}
+.ok-btn a {
+    text-decoration: none;
+    color: snow;
+}
+.ok-btn:hover {
+    background-color: #1e7e34;
+}
