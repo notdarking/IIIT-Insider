@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ComparingData from "../Components/ComparingData";
+import api from "../services/api";
 
 const Compare = () => {
   const [college1, setCollege1] = useState("");
@@ -9,28 +10,42 @@ const Compare = () => {
   const [error, setError] = useState("");
 
   
-  const handleSearch = () => {
+  const getCompareData = async (collegeName) => {
+    const key = collegeName.trim().toLowerCase();
+    if (!key) return null;
+
+    try {
+      const backendData = await api.colleges.compare(key);
+      if (backendData && backendData.name) {
+        return backendData;
+      }
+    } catch (error) {
+      // Keep the comparison usable before backend data is seeded.
+    }
+
+    return ComparingData[key] || null;
+  };
+
+  const handleSearch = async () => {
     setError("");
     setResult1(null);
     setResult2(null);
 
-    setTimeout(() => {
-      const key1 = college1.trim().toLowerCase();
-      const key2 = college2.trim().toLowerCase();
+    const key1 = college1.trim().toLowerCase();
+    const key2 = college2.trim().toLowerCase();
 
-      const data1 = ComparingData[key1];
-      const data2 = ComparingData[key2];
+    const data1 = await getCompareData(college1);
+    const data2 = await getCompareData(college2);
 
-      if (!data1 && key1 !== "") {
-        setError((prev) => `${prev} '${college1}' not found. `);
-      }
-      if (!data2 && key2 !== "") {
-        setError((prev) => `${prev} '${college2}' not found.`);
-      }
+    if (!data1 && key1 !== "") {
+      setError((prev) => `${prev} '${college1}' not found. `);
+    }
+    if (!data2 && key2 !== "") {
+      setError((prev) => `${prev} '${college2}' not found.`);
+    }
 
-      setResult1(data1 || null);
-      setResult2(data2 || null);
-    }, 50); 
+    setResult1(data1 || null);
+    setResult2(data2 || null);
   };
 
   const renderTable = (data, delayClass) => {

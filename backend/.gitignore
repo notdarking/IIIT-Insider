@@ -1,0 +1,22 @@
+# Build output
+target/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Firebase and service account secrets
+firebase-service-account.json
+*firebase-service-account*.json
+*firebase-adminsdk*.json
+src/main/resources/firebase-service-account.json
+
+# Logs
+logs/
+*.log
+
+# IDE/OS files
+.DS_Store
+.idea/
+.vscode/

@@ -13,19 +13,19 @@ const CollegeMatch = () => {
           <div className="flex flex-col items-center gap-6 relative group">
             <img
               className="w-42 h-32 object-contain"
-              src="../src/assets/react.svg"
+              src="../src/assets/college.png"
               alt="College"
             />
 
             <div className="absolute bottom-0 transition-all duration-300 group-hover:bottom-10">
-              <Button name="College" path="/college" />
+              <Button name="College" path="/college?region=all" />
             </div>
           </div>
 
           <div className="flex flex-col items-center gap-6 relative group">
             <img
               className="w-42 h-32 object-contain"
-              src="exams.png"
+              src="../src/assets/exams.png"
               alt="Exams"
             />
             <div className="absolute bottom-0 transition-all duration-300 group-hover:bottom-10">
@@ -36,7 +36,7 @@ const CollegeMatch = () => {
           <div className="flex flex-col items-center gap-6 relative group">
             <img
               className="w-42 h-32 object-contain"
-              src="cutoff.png"
+              src="../src/assets/cutoff.png"
               alt="Cutoff"
             />
             <div className="absolute bottom-0 transition-all duration-300 group-hover:bottom-10">

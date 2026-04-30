@@ -4,6 +4,8 @@ import Logo from "./Logo";
 import Button from "./Button";
 import Data from "./Data";
 import { NavLink } from "react-router-dom";
+import NotificationButton from "./NotificationButton";
+import SocialShare from "./SocialShare";
 
 const Navbar = () => {
   const filterCollege = function (region) {
@@ -40,7 +42,9 @@ const Navbar = () => {
           <Button name="User Table" path="/userTable" />
         </div>
       </div>
-      <div className="flex items-center justify-center px-6 ">
+      <div className="flex items-center justify-center gap-4 px-6 ">
+        <NotificationButton />
+        <SocialShare url={window.location.href} title="IIIT Insider" />
         <Button name="Register" path="/register" />
       </div>
     </div>

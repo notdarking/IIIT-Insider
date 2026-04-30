@@ -2,17 +2,9 @@ import React from "react";
 import Logo from "./Logo";
 import Name from "./Name";
 import Button from "./Button";
-import Data from "../Components/Data"
 import { NavLink } from "react-router-dom";
 
 const QuickLink = () => {
-  const filterCollege=function(region){
-    if(region==='all'){
-      return Data
-    }
-    return Data.filter((item)=>item.region===region)
-  }
-
   return (
     <div className="flex flex-col justify-around items-center w-screen h-130 bg-radial from-amber-300 to-black mt-5 mb-0">
       <div className="flex flex-row justify-between items-center p-5 w-[80%]">
@@ -41,36 +33,31 @@ const QuickLink = () => {
           </span>
           
           <NavLink
-            to="/college"
-            state={{filteredCollege:filterCollege('west')}}
+            to="/college?region=west"
             className='px-4 py-1 font-semibold transition-all rounded-xl active:tracking-tight cursor-pointer'
           >
             West
           </NavLink>
           <NavLink
-            to="/college"
-            state={{filteredCollege:filterCollege('north')}}
+            to="/college?region=north"
             className='px-4 py-1 font-semibold transition-all rounded-xl active:tracking-tight cursor-pointer'
           >
             North
           </NavLink>
           <NavLink
-            to="/college"
-            state={{filteredCollege:filterCollege('south')}}
+            to="/college?region=south"
             className='px-4 py-1 font-semibold transition-all rounded-xl active:tracking-tight cursor-pointer'
           >
             South
           </NavLink>
           <NavLink
-            to="/college"
-            state={{filteredCollege:filterCollege('east')}}
+            to="/college?region=east"
             className='px-4 py-1 font-semibold transition-all rounded-xl active:tracking-tight cursor-pointer'
           >
             East
           </NavLink>
           <NavLink
-            to="/college"
-            state={{filteredCollege:filterCollege('central')}}
+            to="/college?region=central"
             className='px-4 py-1 font-semibold transition-all rounded-xl active:tracking-tight cursor-pointer'
           >
             Central

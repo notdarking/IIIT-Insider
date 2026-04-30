@@ -1,9 +1,89 @@
-import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { useLocation, useSearchParams, Link } from "react-router-dom";
+import Data from "../Components/Data";
+import api from "../services/api";
 
 const College = () => {
   const location = useLocation();
-  const colleges = location.state?.filteredCollege || [];
+  const [searchParams] = useSearchParams();
+  const region = searchParams.get("region") || "all";
+  const initialColleges = useMemo(() => {
+    if (location.state?.filteredCollege) {
+      return location.state.filteredCollege;
+    }
+
+    if (region === "all") {
+      return Data;
+    }
+
+    return Data.filter((item) => item.region === region);
+  }, [location.state, region]);
+  const [colleges, setColleges] = useState(initialColleges);
+  const [loading, setLoading] = useState(false);
+
+  const normalizeCollegeName = (name) => (
+    name || ""
+  )
+    .toLowerCase()
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const mergeCollegeData = (localColleges, backendColleges) => {
+    const backendByName = new Map(
+      backendColleges.map((college) => [normalizeCollegeName(college.name), college])
+    );
+
+    return localColleges.map((college) => {
+      const backendCollege = backendByName.get(normalizeCollegeName(college.name));
+
+      if (!backendCollege) {
+        return college;
+      }
+
+      return {
+        ...college,
+        ...backendCollege,
+        image: backendCollege.image || college.image,
+        description: backendCollege.description || college.description,
+      };
+    });
+  };
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadColleges() {
+      setLoading(true);
+      try {
+        const backendColleges = await api.colleges.getAll(region);
+        if (isMounted && Array.isArray(backendColleges) && backendColleges.length > 0) {
+          setColleges(
+            backendColleges.length >= initialColleges.length
+              ? backendColleges
+              : mergeCollegeData(initialColleges, backendColleges)
+          );
+        } else if (isMounted) {
+          setColleges(initialColleges);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setColleges(initialColleges);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadColleges();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [region, initialColleges]);
+
   if (colleges.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
@@ -27,6 +107,7 @@ const College = () => {
           Explore Colleges
         </h1>
         <div className="h-1 w-24 bg-amber-600 mx-auto rounded-full"></div>
+        {loading && <p className="text-sm text-gray-500 mt-4">Loading latest college data...</p>}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-300 mx-auto">
