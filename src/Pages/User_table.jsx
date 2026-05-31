@@ -71,7 +71,7 @@ const User_table = () => {
         </div>
 
         <div className="overflow-x-auto rounded-xl border border-yellow-400/30 bg-gray-950">
-          <table className="w-full min-w-[850px] border-collapse text-left text-sm">
+          <table className="w-full min-w-212.5 border-collapse text-left text-sm">
             <thead className="bg-yellow-400/10 text-yellow-300">
               <tr>
                 <th className="px-4 py-3 font-semibold">ID</th>
