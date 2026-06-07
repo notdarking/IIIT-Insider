@@ -29,6 +29,19 @@ const College = () => {
     .replace(/\s+/g, " ")
     .trim();
 
+  const normalizeImagePath = (imagePath) => {
+    if (!imagePath) {
+      return imagePath;
+    }
+
+    const publicAssetMatch = imagePath.match(/(?:^|\/)public\/assets\/([^/?#]+)/);
+    if (publicAssetMatch) {
+      return `/assets/${publicAssetMatch[1]}`;
+    }
+
+    return imagePath;
+  };
+
   const mergeCollegeData = (localColleges, backendColleges) => {
     const backendByName = new Map(
       backendColleges.map((college) => [normalizeCollegeName(college.name), college])
@@ -41,10 +54,15 @@ const College = () => {
         return college;
       }
 
+      const backendImage = backendCollege.image || "";
+      const canUseBackendImage = backendImage
+        && !backendImage.includes("/src/assets/")
+        && !backendImage.includes("../src/assets/");
+
       return {
         ...college,
         ...backendCollege,
-        image: backendCollege.image || college.image,
+        image: canUseBackendImage ? normalizeImagePath(backendImage) : college.image,
         description: backendCollege.description || college.description,
       };
     });
@@ -60,7 +78,10 @@ const College = () => {
         if (isMounted && Array.isArray(backendColleges) && backendColleges.length > 0) {
           setColleges(
             backendColleges.length >= initialColleges.length
-              ? backendColleges
+              ? backendColleges.map((college) => ({
+                  ...college,
+                  image: normalizeImagePath(college.image),
+                }))
               : mergeCollegeData(initialColleges, backendColleges)
           );
         } else if (isMounted) {

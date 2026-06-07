@@ -1,3 +1,8 @@
+const resolveAssetImage = (imagePath) => {
+  const fileName = imagePath.split('/').pop();
+  return fileName ? `/assets/${fileName}` : imagePath;
+};
+
 const Data = [
   {
     id: 1,
@@ -5,7 +10,7 @@ const Data = [
     description: `International Institute of Information Technology, Bangalore (IIIT Bangalore) is a research-focused institute located in Electronics City, Bengaluru. 
     It was established in 1999 and is known for its strong academic rigor, industry collaboration, and specialization in computer science and data-driven fields. 
     The institute offers programs such as Integrated M.Tech, M.Tech, MSc (Digital Society), and PhD, and consistently records excellent placements in software development, AI/ML, cybersecurity, and research roles.`,
-    image:"../src/assets/banglore.webp",
+    image:"/assets/banglore.webp",
     region:"south"
   },
 
@@ -15,7 +20,7 @@ const Data = [
     description: `IIIT Lucknow (Indian Institute of Information Technology, Lucknow) is an Institute of National Importance established in 2015 by the Ministry of Education under the Public-Private Partnership (PPP) model. Situated in the capital city of Uttar Pradesh, the institute aims to be a leading center for education, research, and innovation in the field of Information Technology (IT).
     IIIT Lucknow is highly sought after for its strong academic curriculum and outstanding placement performance. The institute offers B.Tech programs in Computer Science and Engineering (CSE) and Information Technology (IT), along with a distinctive B.Tech/M.Tech Dual Degree program in CSE and an MBA with specialization in IT.
     Admission to the B.Tech courses is based on JEE Main rank, making the competition very intense. The institute provides a highly rigorous academic environment and modern research exposure in emerging domains such as Artificial Intelligence and Machine Learning. IIIT Lucknow has rapidly risen in prominence due to its impressive placement statistics, attracting top tech companies and offering high salary packages, placing it among the leading IIITs in the country.`,
-    image:"../src/assets/lucknow.jpeg",
+    image:"/assets/lucknow.jpeg",
     region:"north"
   },
 
@@ -28,7 +33,7 @@ const Data = [
     Located on an expansive 23-acre modern campus in Gothapatna, Bhubaneswar, the institute offers B.Tech programs in Computer Science and Engineering, Information Technology, Electrical and Electronics Engineering, and Electronics and Telecommunication Engineering, along with M.Tech and PhD programs.
     Admission to the B.Tech courses is based on JEE Main scores through the JoSAA/CSAB counseling process. The institute has built a consistent track record in placements, with leading multinational companies and fast-growing tech startups recruiting students.
     IIIT Bhubaneswar emphasizes holistic student development through tech clubs, research labs, incubators, and strong industry collaboration, making it a dynamic hub for technological learning and career growth.`,
-    image:"../src/assets/bhubneshwar.jpeg",
+    image:"/assets/bhubneshwar.jpeg",
     region:"east"
   },
 
@@ -39,7 +44,7 @@ const Data = [
     IIITA is consistently ranked among the top technical institutes in India, recognized for its challenging academic environment and strong emphasis on research and innovation. The institute offers B.Tech across four specializations, as well as M.Tech, MBA, and PhD programs, attracting talented students from across the nation.
     The institute is particularly known for its strong coding and competitive programming culture, which has produced numerous global programming contest achievers. This culture of hands-on problem solving directly contributes to excellent placement records, with leading global and domestic tech companies visiting the campus every year.
     The campus is spread over 100 acres, fully residential, and equipped with modern infrastructure designed to support both academic growth and personal development.`,
-    image:"../src/assets/allahabad.jpeg",
+    image:"/assets/allahabad.jpeg",
     region:"north"
   },
 
@@ -48,7 +53,7 @@ const Data = [
     name: "IIIT Hyderabad",
     description: `The International Institute of Information Technology, Hyderabad (IIIT-H), established in 1998, is a highly reputed, autonomous, not-for-profit university operating under a Public-Private Partnership (N-PPP) model. Widely regarded as one of India's premier technical research institutions, it is a peer to the top IITs and the first IIIT established under this framework. IIIT-H is renowned for its strong focus on research and technology application for both industry and society, encouraging undergraduate students to participate in cutting-edge projects.
     The institute is famous for its innovative curriculum, offering flexible programs like the Dual Degree (B.Tech + M.S. by Research) and its unique research-led teaching model. Key research areas include Artificial Intelligence, Robotics, Data Science, and Cognitive Science, housed in world-renowned centers of excellence. Admission is extremely competitive, often through JEE Main, but also via a special research pathway. IIIT-H consistently records exceptional placements with high average salary packages, reflecting the industry's premium on its research-focused graduates.`,
-    image:"../src/assets/hyderabad.jpeg",
+    image:"/assets/hyderabad.jpeg",
     region:"south"
   },
 
@@ -58,7 +63,7 @@ const Data = [
     description: `The Indraprastha Institute of Information Technology, Delhi (IIIT-Delhi), established in 2008 by an Act of the Delhi Legislature, is a comprehensive research-led teaching institute with the empowering authority to grant its own degrees. It is a public, state-level technical university that has rapidly distinguished itself as a top-tier institution in India for Computer Science and Electronics education and research.
     IIIT-Delhi places a strong emphasis on interdisciplinary research and a project-based curriculum. It offers B.Tech, M.Tech, and PhD programs across departments like Computer Science and Engineering (CSE), Electronics & Communication Engineering (ECE), and specialized areas such as Computational Biology and Human Centered Design. It houses numerous Centers of Excellence, including those for AI, Cybersecurity, and Design, reflecting its deep commitment to societal and technological challenges.
     Admission is highly competitive and primarily through the JEE Main score. The institute boasts excellent placements and a supportive environment, consistently attracting meritorious students and globally recognized faculty.`,
-    image:"../src/assets/delhi.jpeg",
+    image:"/assets/delhi.jpeg",
     region:"north"
   },
   {
@@ -67,7 +72,7 @@ const Data = [
     description: `ABV-IIITM Gwalior, located in Madhya Pradesh, is an Institute of National Importance established in 1997 by the Government of India. It was the first IIIT founded with the mission of integrating Information Technology and Business Management. The institute was renamed in 2002 to honor former Prime Minister Atal Bihari Vajpayee.
     The institute is situated on a lush 160-acre campus near the historic Gwalior Fort. It is well known for its five-year Integrated Post Graduate (IPG) programs that offer B.Tech + M.Tech or B.Tech + MBA degrees, along with regular B.Tech, M.Tech, MBA, and PhD programs. The curriculum focuses on producing professionals skilled in both technology and business.
     ABV-IIITM maintains consistently strong placement performance, with high average and top CTCs, making it one of the finest technical and management institutes in India. Admissions to the B.Tech and IPG programs are based on JEE Main scores.`,
-    image:"../src/assets/gwalior.jpeg",
+    image:"/assets/gwalior.jpeg",
     region:"central"
   },
   {
@@ -76,7 +81,7 @@ const Data = [
     description: `The Indian Institute of Information Technology, Kota, is an Institute of National Importance established in 2013 under the Public-Private Partnership (PPP) model. It is uniquely mentored by the Malaviya National Institute of Technology (MNIT), Jaipur, and currently operates from the MNIT campus, benefiting immensely from its resources, faculty expertise, and established infrastructure. This mentorship ensures that IIIT Kota maintains a high academic standard right from its inception.
     The institute is focused on producing high-quality engineers in the fields of Information Technology (IT) and Electronics and Communication Engineering (ECE) to meet the demands of the modern industrial economy. It offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE), with intake based on the JEE Main score.
     IIIT Kota’s curriculum is contemporary, emphasizing strong foundational knowledge in core engineering coupled with a practical, hands-on approach. Despite operating from a temporary campus, the institute boasts competitive placement statistics, leveraging the strong industry connections fostered by its mentoring institution, MNIT Jaipur. The future permanent campus in Kota is being planned to become a dedicated center for innovation and research.`,
-    image:"../src/assets/kota.jpeg",
+    image:"/assets/kota.jpeg",
     region:"north"
   },
   {
@@ -85,7 +90,7 @@ const Data = [
     description: `The Indian Institute of Information Technology Design and Manufacturing (IIITDM), Kancheepuram, is a specialized Institute of National Importance established in 2007 by the Ministry of Education, Government of India. It operates with a distinctive interdisciplinary focus, integrating Information Technology (IT), Design, and Manufacturing to address the intricate demands of product development in the modern industrial landscape.
     Located on a state-of-the-art 51-acre campus near Chennai, IIITDM Kancheepuram is strategically placed within a major industrial and technological hub. The institute is known for its unique curriculum that emphasizes a "design-centric" approach across its engineering disciplines. It offers specialized Dual Degree programs (B.Tech + M.Tech) in fields like Computer Science with specialization in Design, as well as B.Tech, M.Tech, M.Des, and PhD degrees.
     A core strength of the institute is its focus on product innovation and practical application, featuring advanced manufacturing and design laboratories. Admission to its undergraduate programs is primarily based on the JEE Main score. IIITDM Kancheepuram maintains a strong reputation for placements, particularly in the manufacturing and software industries, where its graduates' unique skill set is highly valued.`,
-    image:"../src/assets/kanchepuram.jpeg",
+    image:"/assets/kanchepuram.jpeg",
     region:"north"
   },
   {
@@ -94,7 +99,7 @@ const Data = [
     description: `The Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and Manufacturing (PDPM IIITDM), Jabalpur, is a specialized Institute of National Importance established in 2005 by the Government of India. Its unique mandate is to foster excellence in research and education by integrating Information Technology (IT) with Design and Manufacturing processes, aligning with national initiatives like 'Make in India' and 'Digital India.'
     Located on a sprawling 260-acre campus near the Dumna Nature Reserve, IIITDM Jabalpur offers diverse academic programs, including B.Tech, B.Des, M.Tech, M.Des, and PhD. The institute is one of the few IIITs offering a specialized B.Des (Bachelor of Design) degree and B.Tech in Smart Manufacturing, showcasing its interdisciplinary focus. The curriculum strongly emphasizes hands-on experience and project-based learning to create industry-ready professionals.
     Admission to its undergraduate programs (B.Tech and B.Des) is primarily through JEE Main and UCEED scores, respectively. The institute maintains a commendable placement record, attracting top companies with high domestic and international package offers.`,
-    image:"../src/assets/jabalpur.jpeg",
+    image:"/assets/jabalpur.jpeg",
     region:"central"
   },
   {
@@ -104,7 +109,7 @@ const Data = [
     The Indian Institute of Information Technology Design and Manufacturing (IIITDM), Kurnool, is a new-generation, specialized Institute of National Importance established in 2015 by the Ministry of Education, Government of India. It was founded under the Andhra Pradesh Reorganization Act, 2014, with the primary objective of creating a center for interdisciplinary excellence integrating Information Technology (IT), Design, and Manufacturing.
     Located on a picturesque 151-acre campus at Jagannathagattu, the institute promotes a unique, hands-on, and design-centric engineering education. IIITDM Kurnool offers B.Tech programs in specialized fields, including Computer Science and Engineering, Electronics and Communication Engineering (with Design & Manufacturing), Mechanical Engineering (with Design & Manufacturing), and Artificial Intelligence & Data Science. It also offers Dual Degree (B.Tech + M.Tech) and Ph.D. programs.
     Admission to the undergraduate programs is based on the JEE Main score. The institute is rapidly developing its infrastructure and has shown promising placement records, with graduates being recruited by top-tier IT and core engineering companies, reflecting the industry's demand for its uniquely skilled, interdisciplinary professionals.`,
-    image:"../src/assets/kurnool.jpeg",
+    image:"/assets/kurnool.jpeg",
     region:"south"
   },
 
@@ -115,7 +120,7 @@ const Data = [
     The Indian Institute of Information Technology, Una, is one of the 20 new IIITs established under the Public-Private Partnership (PPP) model and was granted the status of an Institute of National Importance in 2017. Located temporarily in Una, Himachal Pradesh, the institute is focused on becoming a hub for IT education and research in the Himalayan region. Its establishment aims at bridging the gap between regional industry needs and academic output in the fields of Information Technology (IT) and Electronics and Communication Engineering (ECE).
     IIIT Una currently offers B.Tech programs in Computer Science and Engineering (CSE), Electronics and Communication Engineering (ECE), and Information Technology (IT), along with Ph.D. programs. The institute was initially mentored by NIT Hamirpur, helping establish a strong academic framework during its formative years.
     The curriculum is highly industry-relevant, emphasizing contemporary computational techniques and hardware design to help students adapt to modern technological demands. Admission to the B.Tech programs is based on the JEE Main score. As IIIT Una transitions to its permanent campus, it continues to attract motivated students and faculty, contributing meaningfully to the technological growth of the region.`,
-    image:"../src/assets/una.jpeg",
+    image:"/assets/una.jpeg",
     region:"north"
   },
 
@@ -126,7 +131,7 @@ const Data = [
     The Indian Institute of Information Technology, Sonepat, is one of the IIITs established on the Public-Private Partnership (PPP) model and was accorded the status of an Institute of National Importance in 2017. Although officially located in Sonepat, Haryana, the institute currently operates from a temporary campus at the National Institute of Technology (NIT) Kurukshetra, with NIT Kurukshetra serving as its mentoring institution.
     IIIT Sonepat benefits immensely from its proximity to the National Capital Region (NCR), giving students access to a wide ecosystem of industries and tech companies. The institution is dedicated to creating a center of excellence in core computing and engineering disciplines. It offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE), along with doctoral programs.
     The curriculum is designed to be highly relevant to industry expectations, with an emphasis on cutting-edge areas such as Artificial Intelligence, Machine Learning, and Data Science. Admission to the B.Tech programs is based on JEE Main performance. With support from NIT Kurukshetra and growing industry collaboration, IIIT Sonepat is rapidly shaping into a strong technical institute, preparing students for impactful careers in the global IT sector.`,
-    image:"../src/assets/soni.jpeg",
+    image:"/assets/soni.jpeg",
     region:"north"
   },
 
@@ -136,7 +141,7 @@ const Data = [
     description: `The Indian Institute of Information Technology, Sri City (IIITSRI), established in 2013, is an Institute of National Importance located in the integrated business city of Sri City, Andhra Pradesh. It was founded under the Public-Private Partnership (PPP) model with funding from the Central Government, State Government, and industry partners. Initially mentored by IIIT Hyderabad, the institute quickly adopted a high standard of academic rigor and industry-centric focus.
     Strategically situated near Chennai's industrial and tech corridor, IIITSRI specializes in integrating Information Technology with the demands of industrial technology. It offers B.Tech programs in traditional disciplines like CSE and ECE, along with modern specializations like Artificial Intelligence & Data Science (AI & DS). The curriculum is designed to be highly practical, preparing students for the advanced requirements of the IT and manufacturing sectors. Admission is based on the JEE Main score.
     IIIT Sri City leverages its industrial ecosystem for strong collaborations, internships, and placements, ensuring its graduates are well-equipped for the modern workplace.`,
-    image:"../src/assets/sricity.jpeg",
+    image:"/assets/sricity.jpeg",
     region:"south"
   },
 
@@ -147,7 +152,7 @@ const Data = [
     The Indian Institute of Information Technology, Dharwad (IIIT Dharwad), established in 2015, is an Institute of National Importance operating under the Public-Private Partnership (PPP) model. It is strategically funded by the Government of India, the Government of Karnataka, and industry partner KEONICS, reflecting a commitment to regional technological development. The institute shifted to its permanent, sprawling 60-acre campus near Dharwad, a growing educational and industrial hub.
     IIIT Dharwad is focused on delivering a strong, applied-research-oriented curriculum in core IT and emerging fields. It offers B.Tech programs in Computer Science and Engineering (CSE), Electronics and Communication Engineering (ECE), and a highly specialized B.Tech in Data Science and Artificial Intelligence. This focus on contemporary fields prepares graduates for high-demand roles. Admission to undergraduate programs is based on the JEE Main score.
     Despite being a relatively young institution, it maintains a self-sustaining model and is recognized for its dynamic academic environment and competitive placement record, driven by the strong industry demand in the Karnataka region`,
-    image:"../src/assets/dharwad.jpeg",
+    image:"/assets/dharwad.jpeg",
     region:"south"
   },
 
@@ -158,7 +163,7 @@ const Data = [
     The Indian Institute of Information Technology, Raichur (IIIT Raichur), is one of the newest IIITs, established in 2019 under the Public-Private Partnership (PPP) model and recognized as an Institute of National Importance in 2020. The institute was initially mentored by the prestigious IIT Hyderabad, ensuring a robust academic foundation and guidance in its formative years. IIIT Raichur currently operates from a transit campus in Raichur, with a permanent 74-acre campus under development.
     The institute is rapidly emerging as a center for excellence in core computing. It offers B.Tech programs in Computer Science and Engineering (CSE) and the highly sought-after Artificial Intelligence & Data Science (AI & DS). IIIT Raichur follows a unique Fractal Academic System which allows for continuous evaluation and flexibility in learning.
     Despite its nascent stage, the institute has demonstrated extremely strong potential, with reported high average placement packages for its first few graduating batches. Admission is highly selective and based on the JEE Main score, drawing talented students motivated by the institute's promising trajectory and research focus.`,
-    image:"../src/assets/raichur.jpeg",
+    image:"/assets/raichur.jpeg",
     region:"south"
   },
 
@@ -168,7 +173,7 @@ const Data = [
     description: `The Indian Institute of Information Technology, Kottayam (IIIT Kottayam), established in 2015, is an Institute of National Importance set up under the Public-Private Partnership (PPP) model. The institute is located on its permanent, state-of-the-art campus in Valavoor, Kottayam, providing a dedicated and tranquil environment for learning and research. It is focused on cultivating talent in Information Technology and allied disciplines, with a strong emphasis on societal impact.
     IIIT Kottayam offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE), alongside specializations in CSE with AI & Data Science and ECE with Cyber Security. A key feature of the institute is its commitment to innovation and entrepreneurship, housing a dedicated Incubation Centre and specialized labs like CyberLabs and FACTS-H Lab.
     The curriculum is designed to be contemporary and problem-solving focused, preparing students to address both local and global technological challenges. Admission is through the JEE Main score. The institute is dedicated to producing ethically sound, technically proficient, and socially conscious graduates.`,
-    image:"../src/assets/kottyam.jpeg",
+    image:"/assets/kottyam.jpeg",
     region:"south"
   },
 
@@ -178,7 +183,7 @@ const Data = [
     description: `IIIT Tiruchirappalli (Indian Institute of Information Technology, Tiruchirappalli), established in 2013, is an Institute of National Importance operating under the Public-Private Partnership (PPP) model. Initially mentored by NIT Tiruchirappalli (NITT), the institute benefited greatly from the academic culture and infrastructure of a premier national institution. It is currently transitioning to its upcoming permanent campus in Sethurappatti, near Trichy.
     IIIT Tiruchirappalli maintains a strong academic profile and offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE), along with M.Tech and Ph.D. programs in specialized domains. The institute emphasizes research in areas such as Data Analytics, Machine Learning, IoT, and VLSI Systems.
     The curriculum blends core engineering fundamentals with hands-on exposure to emerging technologies, ensuring that students develop both theoretical depth and practical skill sets. Admission to the B.Tech programs is based on the JEE Main score. With solid academic mentorship, growing industry partnerships, and a focus on future-ready learning, IIIT-T is committed to producing highly skilled IT professionals.`,
-    image:"../src/assets/trichy.jpeg",
+    image:"/assets/trichy.jpeg",
     region:"south"
   },
   {
@@ -187,7 +192,7 @@ const Data = [
     description: `IIIT Vadodara (Indian Institute of Information Technology, Vadodara), established in 2013, is an Institute of National Importance operating under the Public-Private Partnership (PPP) model. The institute currently functions from a temporary campus in Gandhinagar and benefits from the region’s strong presence of IT and corporate sectors. It was founded through a joint initiative by the Government of India, the Government of Gujarat, and key industry partners.
     IIIT Vadodara focuses heavily on research and applied Information Technology. It offers B.Tech programs in Computer Science and Engineering (CSE) and Information Technology (IT), along with M.Tech and Ph.D. programs. A significant development in its expansion is the establishment of its satellite campus, IIITV-International Campus Diu (IIITV-ICD).
     The curriculum emphasizes a blend of theoretical depth and practical application, ensuring industry-ready skill development. Admission to the B.Tech program is based on the JEE Main score. Leveraging its strategic location, strong industrial collaborations, and rapidly advancing academic ecosystem, IIIT Vadodara has earned an excellent reputation for competitive placement performance, consistently attracting top recruiters in the technology sector.`,
-    image:"../src/assets/vadodara.jpeg",
+    image:"/assets/vadodara.jpeg",
     region:"east"
   },
 
@@ -197,7 +202,7 @@ const Data = [
     description: `IIIT Surat (Indian Institute of Information Technology, Surat), established in 2017, is an Institute of National Importance functioning under the Public-Private Partnership (PPP) model. The institute currently operates from a transit campus within SVNIT Surat, which also serves as its mentoring institution, allowing students to benefit from the well-established facilities and experienced faculty of a premier NIT.
     IIIT Surat is focused on producing high-quality professionals in computing and electronics. It offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE), along with Ph.D. programs. The curriculum is aligned with modern industry expectations, emphasizing research, innovation, and hands-on learning based on evolving technological trends.
     Admission to the B.Tech programs is based exclusively on the JEE Main score. Although a relatively new IIIT, its strategic location in the industrial hub of Surat and its collaboration with SVNIT have helped the institute secure strong industrial exposure and promising placement opportunities, enabling rapid institutional growth.`,
-    image:"../src/assets/surat.jpeg",
+    image:"/assets/surat.jpeg",
     region:"east"
   },
 
@@ -207,7 +212,7 @@ const Data = [
     description: `IIIT Nagpur (Indian Institute of Information Technology, Nagpur), established in 2016, is an Institute of National Importance under the Public-Private Partnership (PPP) model. The institute is located on a 100-acre permanent campus in Nagpur — a fast-growing IT and logistics hub in Central India. Its mission is to bridge the gap between academic learning and industry requirements in the IT sector.
     IIIT Nagpur focuses strongly on skill development in emerging and high-impact technologies. The institute offers B.Tech programs in Computer Science and Engineering (CSE), Electronics and Communication Engineering (ECE), and specialized programs such as CSE with a focus on Data Science and Artificial Intelligence.
     The curriculum promotes hands-on, project-based learning and benefits from collaborations with major industry partners. Admission to the B.Tech programs is based on performance in the JEE Main exam. With modern infrastructure and active research and innovation centers, IIIT Nagpur is developing quickly as a major technical institution in the region, supported by strong placement outcomes.`,
-    image:"../src/assets/nagpur.jpeg",
+    image:"/assets/nagpur.jpeg",
     region:"central"
   },
 
@@ -217,7 +222,7 @@ const Data = [
     description: `IIIT Pune (Indian Institute of Information Technology, Pune), established in 2016, is an Institute of National Importance operating under the Public-Private Partnership (PPP) model. Situated in Pune — a major hub for IT, automotive, and industrial innovation — the institute benefits from strong connections with technology companies and research organizations. A modern 100-acre permanent campus is currently under development.
     IIIT Pune offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE). The curriculum is designed to prepare students for rapidly evolving technological demands, with strong emphasis on research-focused learning and industry exposure.
     Admission to the undergraduate programs is based on the JEE Main score. The institute is rising quickly in reputation due to its industry-aligned academics and impressive placement records, drawing prominent domestic and global recruiters from both IT and engineering sectors.`,
-    image:"../src/assets/pune.jpeg",
+    image:"/assets/pune.jpeg",
     region:"west"
   },
 
@@ -227,7 +232,7 @@ const Data = [
     description: `IIIT Bhopal (Indian Institute of Information Technology, Bhopal), established in 2017, is an Institute of National Importance under the Public-Private Partnership (PPP) model. The institute currently functions from a transit campus at Maulana Azad National Institute of Technology (MANIT), Bhopal, which serves as its mentoring institution and provides developed academic infrastructure.
     IIIT Bhopal is dedicated to high-quality education and research in the domain of Information Technology. It offers B.Tech programs in Computer Science and Engineering (CSE), Electronics and Communication Engineering (ECE), and Information Technology (IT). The curriculum is contemporary and constantly evolves to include modern subjects such as Blockchain, Cryptography, Artificial Intelligence, and the Internet of Things (IoT).
     Admission to the B.Tech programs is based on the JEE Main score. Despite being a young institute, IIIT Bhopal has quickly gained prominence due to its impressive placement performance, with students receiving offers from leading tech companies such as Amazon and Intuit — demonstrating the institute’s rapid growth, industry relevance, and academic strength.`,
-    image:"../src/assets/bhopal.jpeg",
+    image:"/assets/bhopal.jpeg",
     region:"central"
   },
   {
@@ -236,7 +241,7 @@ const Data = [
     description: `IIIT Ranchi (Indian Institute of Information Technology, Ranchi), established in 2016, is an Institute of National Importance functioning under the Public-Private Partnership (PPP) model. The institute currently operates from a temporary campus in Ranchi while a 66-acre permanent campus is being developed in Kanke.
     IIIT Ranchi offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE). It also provides specializations such as CSE with specialization in Data Science and AI, and ECE with specialization in Embedded Systems and IoT. The curriculum is modern and designed to deliver a strong understanding of both hardware and software domains.
     Admission to the B.Tech programs is based on the JEE Main score. The institute is steadily building a reputation for excellence with competitive placement records and an academic focus on emerging technologies and entrepreneurship, preparing students to meet the needs of the evolving tech industry.`,
-    image:"../src/assets/ranchi.jpeg",
+    image:"/assets/ranchi.jpeg",
     region:"east"
   },
   {
@@ -245,7 +250,7 @@ const Data = [
     description: `IIIT Bhagalpur (Indian Institute of Information Technology, Bhagalpur), established in 2017, is an Institute of National Importance under the Public-Private Partnership (PPP) model and was mentored by IIT Guwahati. The institute has recently shifted to its earthquake- and flood-resistant permanent campus in Sabour, marking a major milestone in its institutional growth.
     IIIT Bhagalpur offers B.Tech programs in core branches such as Computer Science Engineering (CSE) and Electronics and Communication Engineering (ECE), along with interdisciplinary programs like Mathematics and Computing and Mechatronics and Automation. The curriculum is highly adaptive and offers specializations in modern areas including AI & Data Science, VLSI & Embedded Systems, and Electric Vehicle Technology.
     Admission to the B.Tech programs is based on the JEE Main score. The institute is rapidly building its research and innovation ecosystem by leveraging its permanent infrastructure, strong academic foundation, and mentorship legacy, positioning itself to become a leading technical institute in the region.`,
-    image:"../src/assets/bhagalpur.jpeg",
+    image:"/assets/bhagalpur.jpeg",
     region:"east"
   },
   {
@@ -254,7 +259,7 @@ const Data = [
     description: `IIIT Guwahati (Indian Institute of Information Technology, Guwahati), established in 2013, is an Institute of National Importance operating under the Public-Private Partnership (PPP) model. The institute is located on its dedicated 70-acre permanent campus in Santola village near Guwahati International Airport, making it a strategic hub for driving technological growth in the North-Eastern region.
     IIIT Guwahati is committed to high-quality education and research in Information Technology and allied domains. It offers B.Tech, M.Tech, and Ph.D. programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE). The curriculum and academic rigor are structured to meet the needs of the digital economy, with active research in areas such as Machine Learning, Robotics, and Communication Systems.
     Admission to the B.Tech programs is based on the JEE Main score. The institute promotes balanced growth by combining strong technical fundamentals with extracurricular exposure, hosting annual technical, cultural, and sports festivals. IIIT Guwahati has emerged as a key academic institution in the North-East, fostering innovation, research, and holistic student development.`,
-    image:"../src/assets/guwahati.jpeg",
+    image:"/assets/guwahati.jpeg",
     region:"east"
   },
   {
@@ -263,7 +268,7 @@ const Data = [
     description: `IIIT Kalyani (Indian Institute of Information Technology, Kalyani), established in 2014, is an Institute of National Importance functioning under the Public-Private Partnership (PPP) model. The permanent 50-acre campus is being developed in Kalyani, an emerging educational hub near Kolkata. The institute was initially mentored by IIT Kharagpur, one of India's most prestigious technical institutes, helping set a strong academic foundation right from the start.
     IIIT Kalyani is committed to delivering high-quality technical education in fields central to modern computing and electronics. It offers B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE), along with Ph.D. and online M.Tech programs. The curriculum is designed with high flexibility, enabling faculty to autonomously structure interdisciplinary and industry-aligned courses.
     Admission to B.Tech programs is based on the JEE Main score. A low student-teacher ratio and dynamic governance structure enable effective academic interaction and support productive learning. IIIT Kalyani is steadily positioning itself as a major institute driving technological expertise and research in Eastern India.`,
-    image:"../src/assets/kalyani.jpeg",
+    image:"/assets/kalyani.jpeg",
     region:"east"
   },
   {
@@ -272,7 +277,7 @@ const Data = [
     description: `IIIT Agartala (Indian Institute of Information Technology, Agartala), established in 2018, is one of the newer Institutes of National Importance set up under the Public-Private Partnership (PPP) model. The institute currently operates from a transit campus within the National Institute of Technology (NIT) Agartala, which also serves as its mentoring institution. This enables students to benefit from NIT Agartala's established infrastructure, academic ecosystem, and experienced faculty.
     IIIT Agartala emphasizes a focused and high-quality academic structure rather than an overly broad one. It currently offers a B.Tech program in Computer Science and Engineering (CSE), with a curriculum shaped to meet national and global technological standards. The institute nurtures strong research orientation in contemporary fields such as Data Analytics, Machine Learning, and Cloud Computing.
     Admissions are based on JEE Main rank. IIIT Agartala aims to produce highly skilled engineers who can excel in innovation, product development, and real-world problem solving — contributing to sustainable growth in both the northeastern region and the rest of the country.`,
-    image:"../src/assets/agartala.jpeg",
+    image:"/assets/agartala.jpeg",
     region:"east"
   },
   {
@@ -281,9 +286,12 @@ const Data = [
     description: `IIIT Manipur (Indian Institute of Information Technology, Senapati, Manipur) is an Institute of National Importance established in 2015 under the Public-Private Partnership (PPP) model. While the permanent 150-acre campus is coming up in the Senapati district, the institute currently operates from its city campus in Mantripukhri, Imphal, located close to major government and IT facilities.
     IIIT Manipur delivers excellence in Information Technology and related fields, offering B.Tech programs in Computer Science and Engineering (CSE) and Electronics and Communication Engineering (ECE). The institute also promotes advanced research through its Ph.D. programs in domains like Speech Processing, Data Mining, and VLSI & Embedded Systems. Its geographic setting encourages research tailored to solving real-world and regional challenges through technology.
     Admission to B.Tech programs is based on JEE Main rank. IIIT Manipur is rapidly building a strong academic and innovation ecosystem supported by active technical clubs in AI/ML, Cyber Security, and Web Development.`,
-    image:"../src/assets/manipur.jpeg",
+    image:"/assets/manipur.jpeg",
     region:"east"
   },
 ];
 
-export default Data;
+export default Data.map((college) => ({
+  ...college,
+  image: resolveAssetImage(college.image),
+}));

@@ -1,6 +1,10 @@
 import React from "react";
 import Button from "./Button";
 
+const collegeIcon = "/assets/college.png";
+const examsIcon = "/assets/exams.png";
+const cutoffIcon = "/assets/cutoff.png";
+
 const CollegeMatch = () => {
   return (
     <div className="flex flex-col gap-6 m-4">
@@ -13,7 +17,7 @@ const CollegeMatch = () => {
           <div className="flex flex-col items-center gap-6 relative group">
             <img
               className="w-42 h-32 object-contain"
-              src="../src/assets/college.png"
+              src={collegeIcon}
               alt="College"
             />
 
@@ -25,7 +29,7 @@ const CollegeMatch = () => {
           <div className="flex flex-col items-center gap-6 relative group">
             <img
               className="w-42 h-32 object-contain"
-              src="../src/assets/exams.png"
+              src={examsIcon}
               alt="Exams"
             />
             <div className="absolute bottom-0 transition-all duration-300 group-hover:bottom-10">
@@ -36,7 +40,7 @@ const CollegeMatch = () => {
           <div className="flex flex-col items-center gap-6 relative group">
             <img
               className="w-42 h-32 object-contain"
-              src="../src/assets/cutoff.png"
+              src={cutoffIcon}
               alt="Cutoff"
             />
             <div className="absolute bottom-0 transition-all duration-300 group-hover:bottom-10">
